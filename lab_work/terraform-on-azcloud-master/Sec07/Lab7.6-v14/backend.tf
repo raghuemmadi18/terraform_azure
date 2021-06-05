@@ -9,7 +9,7 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name  = "Terra-rg"
-    storage_account_name = "venuremotesa01"
+    storage_account_name = "venuremotesa01fs"
     container_name       = "tfstate"
     key                  = "backend-tf_v14.tfstate"
   }

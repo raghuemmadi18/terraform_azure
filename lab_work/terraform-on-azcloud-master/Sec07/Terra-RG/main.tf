@@ -21,24 +21,24 @@ resource "azurerm_resource_group" "rg" {
 }
 
 # Using Service Principle to create Resources
-
 data "azurerm_client_config" "current" {
 }
 
 # Create a Key vault
 
 resource "azurerm_key_vault" "rg" {
-  name                = "venukeyvault01"
+  name                = "venukeyvaultfs"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   tenant_id           = data.azurerm_client_config.current.tenant_id # we can aslo use tenent id instead of service principle (az account show)
-  sku_name            = "standard"
+  #tenant_id           =  6b9cdc1c-0ed8-4812-8154-bb975b91d702 # we can aslo use tenent id instead of service principle (az account show)
+  sku_name = "standard"
 }
 
 # Create Storage initially
 
 resource "azurerm_storage_account" "rg" {
-  name                     = "venuremotesa01"
+  name                     = "venuremotesa01fs"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"

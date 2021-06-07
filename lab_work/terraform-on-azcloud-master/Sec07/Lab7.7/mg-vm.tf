@@ -92,7 +92,7 @@ resource "azurerm_network_interface_security_group_association" "mg-vm" {
   network_security_group_id = azurerm_network_security_group.mg-vm.id
 }
 
-data "azurerm_subscription" "current" {}
+data "azurerm_subscription" "current" {} # we are using the user/subscription service principle
 
 resource "azurerm_role_assignment" "mg-vm" {
   scope                = data.azurerm_subscription.current.id

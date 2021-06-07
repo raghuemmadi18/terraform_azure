@@ -13,5 +13,5 @@ variable "admin_password" {
 }
 
 variable "access-from" {
-  default = "195.213.36.139"
+  default = "70.120.121.205"
 }

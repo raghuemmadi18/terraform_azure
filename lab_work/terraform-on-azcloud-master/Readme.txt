@@ -1,2 +1,0 @@
-ravikiranreddy63@gmail.com
-ravik_0726

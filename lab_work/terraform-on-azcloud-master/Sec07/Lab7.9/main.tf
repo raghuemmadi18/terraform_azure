@@ -26,13 +26,13 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "example1" { 
   name     = "provider1"
-  location = "West Europe"
+  location = "East US"
 }
 
 resource "azurerm_resource_group" "example2" {
   provider = azurerm.alt
   name     = "provider2"
-  location = "West Europe"
+  location = "East US"
 }
 
 resource "azurerm_storage_account" "example2" {

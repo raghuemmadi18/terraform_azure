@@ -4,5 +4,5 @@ variable abc {
 }
 variable location {
   type    = string
-  default = "westeurope"
+  default = "EAST US"
 }

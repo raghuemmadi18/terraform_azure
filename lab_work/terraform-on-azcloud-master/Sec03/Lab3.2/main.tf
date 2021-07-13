@@ -6,13 +6,13 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
   name     = "Terra-rg"
-  location = "westeurope"
+  location = "East US"
 }
 
 data "azurerm_client_config" "current" {}
 
 /*resource "azurerm_storage_account" "rg" {
-  name                     = "remotesa01"
+  name                     = "remotestrgvenu"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
@@ -25,12 +25,12 @@ resource "azurerm_storage_account" "sa01" {
   account_tier             = "Standard"
   resource_group_name      = azurerm_resource_group.rg.name
 
-  location = "westeurope"
-  name     = "remotesa01"
+  location = "East US"
+  name     = "remotestrgvenu"
 }
 
 resource "azurerm_key_vault" "rg" {
-  name                = "kvult-01"
+  name                = "keyvault-venu"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   tenant_id           = data.azurerm_client_config.current.tenant_id

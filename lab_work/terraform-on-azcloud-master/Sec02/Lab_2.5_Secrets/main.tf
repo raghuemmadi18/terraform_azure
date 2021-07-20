@@ -28,11 +28,12 @@ data "azurerm_client_config" "current" {
 # Create a Key vault
 
 resource "azurerm_key_vault" "rg" {
-  name                = "venukeyvaultfs"
+  name                = "keyvault-venu"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   tenant_id           = data.azurerm_client_config.current.tenant_id
   #tenant_id           = ea5bc0a6-fc86-41ae-b3ad-0f4e5a37658b Ravi Free Tire
+  #tenant_id           = 8e567ea6-8f8a-4471-be72-ffd670dd43f2 Venu Unix
   sku_name = "standard"
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id # Ravi Free Tire
@@ -67,7 +68,7 @@ resource "azurerm_key_vault" "rg" {
 # Create Storage initially
 
 resource "azurerm_storage_account" "rg" {
-  name                     = "venuremotesa01fs"
+  name                     = "remotestrgvenu"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"

@@ -1,7 +1,7 @@
 # Key_Vault Data Source
 
 data "azurerm_key_vault" "kv01" {
-  name                = "venukeyvaultfs"
+  name                = "keyvault-venu"
   resource_group_name = "Terra-rg"
 }
 

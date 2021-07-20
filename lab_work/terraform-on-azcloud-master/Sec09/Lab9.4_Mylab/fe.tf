@@ -5,12 +5,12 @@ resource "azurerm_resource_group" "fe-rg" {
 
 module "fe-vnet" {
   source              = "Azure/vnet/azurerm"
-  vnet_name= "${var.env}-Fe-vnet"
+  vnet_name           = "${var.env}-Fe-vnet"
   resource_group_name = azurerm_resource_group.fe-rg.name
   address_space       = ["10.0.0.0/23"]
   subnet_prefixes     = ["10.0.0.0/24", "10.0.1.0/24"]
   subnet_names        = ["AzureFirewallSubnet", "${var.env}-Jbox-subnet"]
-  tags = {}
+  tags                = {}
 }
 
 resource "azurerm_public_ip" "fe-rg" {

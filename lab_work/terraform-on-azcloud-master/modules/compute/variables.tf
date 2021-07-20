@@ -10,7 +10,7 @@ variable subnet_id {
 
 variable location {
     type=string
-    default="westeurope"
+    default="East US"
 }
 
 variable rg {

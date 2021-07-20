@@ -22,15 +22,19 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPT
 az logout
 #command to logout the azure cli
 
-{
-  "appId": "080130e3-4d93-4132-a44b-d79c33fae758",
-  "displayName": "azure-cli-2021-06-28-03-14-40",
-  "name": "http://azure-cli-2021-06-28-03-14-40",
-  "password": "N-VwBck3qLkyhuzOnQ_h97u_7avpq8WyJI",
-  "tenant": "ea5bc0a6-fc86-41ae-b3ad-0f4e5a37658b"
-}
+Venu:
+sub: 8e567ea6-8f8a-4471-be72-ffd670dd43f2
+tenent: da9b2bed-525e-4968-8538-e247a12ad7e6
 
-export ARM_CLIENT_ID="080130e3-4d93-4132-a44b-d79c33fae758"
-export ARM_CLIENT_SECRET="N-VwBck3qLkyhuzOnQ_h97u_7avpq8WyJI"
-export ARM_SUBSCRIPTION_ID="6b9cdc1c-0ed8-4812-8154-bb975b91d702"
-export ARM_TENANT_ID="ea5bc0a6-fc86-41ae-b3ad-0f4e5a37658b"
+# az ad sp create-for-rbac --role="Contributor"
+
+  "appId": "5dbeaefb-dec7-44a7-88a2-d61350471294",
+  "displayName": "azure-cli-2021-07-20-20-46-06",
+  "name": "http://azure-cli-2021-07-20-20-46-06",
+  "password": "kODG2OTx867tK4YzfvqS8.4fCrOOH.FTlh",
+  "tenant": "da9b2bed-525e-4968-8538-e247a12ad7e6"
+
+export ARM_CLIENT_ID="5dbeaefb-dec7-44a7-88a2-d61350471294"
+export ARM_CLIENT_SECRET="kODG2OTx867tK4YzfvqS8.4fCrOOH.FTlh"
+export ARM_SUBSCRIPTION_ID="8e567ea6-8f8a-4471-be72-ffd670dd43f2"
+export ARM_TENANT_ID="da9b2bed-525e-4968-8538-e247a12ad7e6"

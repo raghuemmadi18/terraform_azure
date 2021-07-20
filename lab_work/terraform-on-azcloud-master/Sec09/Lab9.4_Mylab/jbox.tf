@@ -4,11 +4,11 @@ resource "azurerm_resource_group" "jbox-rg" {
 }
 
 module "jbox-vm" {
-  source = "../../modules/compute"
-  vm-name = "${var.env}-Jbox"
-  subnet_id = module.fe-vnet.vnet_subnets[1]
-  location = azurerm_resource_group.jbox-rg.location
-  rg = azurerm_resource_group.jbox-rg.name
+  source         = "../../modules/compute"
+  vm-name        = "${var.env}-Jbox"
+  subnet_id      = module.fe-vnet.vnet_subnets[1]
+  location       = azurerm_resource_group.jbox-rg.location
+  rg             = azurerm_resource_group.jbox-rg.name
   admin_password = var.admin_password
 }
 

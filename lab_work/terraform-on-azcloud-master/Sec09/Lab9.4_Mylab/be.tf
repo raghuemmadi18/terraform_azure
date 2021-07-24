@@ -1,9 +1,4 @@
-/*resource "azurerm_resource_group" "be-rg" {
-  name     = "${var.env}-Be-rg"
-  location = var.location-name
-}*/
-
-resource "azurerm_resource_group" be-rg {
+resource "azurerm_resource_group" "be-rg" {
   name     = "${var.env}-Be-rg"
   location = var.location-name
 }

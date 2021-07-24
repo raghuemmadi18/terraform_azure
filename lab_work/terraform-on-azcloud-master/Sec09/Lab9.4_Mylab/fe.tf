@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "fe-rg" {
-  name     = "${var.env}-Fe-rg"
+  name     = "${var.env}-fe-rg"
   location = var.location-name
 }
 

@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "jbox-rg" {
-  name     = "${var.env}-Jbox-rg"
+  name     = "${var.env}-jbox-rg"
   location = var.location-name
 }
 

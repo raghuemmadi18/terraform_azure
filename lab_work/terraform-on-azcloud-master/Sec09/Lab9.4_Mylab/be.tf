@@ -1,25 +1,25 @@
 resource "azurerm_resource_group" "be-rg" {
-  name     = "${var.env}-Be-rg"
+  name     = "${var.env}-be-rg"
   location = var.location-name
 }
 
 module "web-vm" {
-  source = "../../modules/compute"
-  vm-name = "${var.env}-Web"
-  subnet_id = module.be-vnet.vnet_subnets[0]
-  location = azurerm_resource_group.be-rg.location
-  rg = azurerm_resource_group.be-rg.name
+  source         = "../../modules/compute"
+  vm-name        = "${var.env}-Web"
+  subnet_id      = module.be-vnet.vnet_subnets[0]
+  location       = azurerm_resource_group.be-rg.location
+  rg             = azurerm_resource_group.be-rg.name
   admin_password = var.admin_password
 }
 
 module "be-vnet" {
   source              = "Azure/vnet/azurerm"
-  vnet_name= "${var.env}-Web-vnet"
+  vnet_name           = "${var.env}-Web-vnet"
   resource_group_name = azurerm_resource_group.be-rg.name
   address_space       = ["10.0.2.0/23"]
   subnet_prefixes     = ["10.0.2.0/24"]
   subnet_names        = ["${var.env}-Web-subnet"]
-  tags = {}
+  tags                = {}
 }
 
 resource "azurerm_network_security_rule" "be-rg" {

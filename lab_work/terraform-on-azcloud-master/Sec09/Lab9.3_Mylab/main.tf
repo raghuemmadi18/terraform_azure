@@ -11,8 +11,8 @@ resource "azurerm_virtual_network" "a" {
 }
 
 resource "azurerm_virtual_network" "b" {
-  name                = "vnet-B"
-  address_space       = ["10.0.2.0/24"]
+  name          = "vnet-B"
+  address_space = ["10.0.2.0/24"]
   #depends_on          = [azurerm_virtual_network.a]
   location            = azurerm_resource_group.abc.location
   resource_group_name = azurerm_resource_group.abc.name

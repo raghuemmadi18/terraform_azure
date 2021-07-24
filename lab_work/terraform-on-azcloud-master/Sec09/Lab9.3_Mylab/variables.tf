@@ -1,8 +1,8 @@
-variable abc {
+variable "abc" {
   type    = string
   default = "abc"
 }
-variable location {
+variable "location" {
   type    = string
   default = "East US"
 }

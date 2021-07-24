@@ -4,7 +4,7 @@
 }*/
 
 resource "azurerm_resource_group" "be-rg" {
-  name     = var.env-Be-rg
+  name     = "${var.env}-Be-rg"
   location = var.location-name
 }
 module "web-vm" {

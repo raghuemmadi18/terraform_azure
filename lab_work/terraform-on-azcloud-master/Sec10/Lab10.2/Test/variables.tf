@@ -4,5 +4,5 @@ variable env {
 }
 variable location-name {
   type    = string
-  default = "westeurope"
+  default = "East US"
 }

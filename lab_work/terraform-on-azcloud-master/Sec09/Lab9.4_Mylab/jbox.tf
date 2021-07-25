@@ -1,7 +1,11 @@
+# Please use terraform version12.29
+
 resource "azurerm_resource_group" "jbox-rg" {
   name     = "${var.env}-Jbox-rg"
   location = var.location-name
 }
+
+#https://registry.terraform.io/modules/Azure/vnet/azurerm/2.1.0
 
 module "jbox-vm" {
   source         = "../../modules/compute"

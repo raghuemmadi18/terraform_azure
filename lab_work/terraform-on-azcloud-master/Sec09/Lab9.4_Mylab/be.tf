@@ -1,12 +1,34 @@
-/*resource "azurerm_resource_group" "be-rg" {
-  name     = "${var.env}-Be-rg"
-  location = var.location-name
-}*/
+# Please use terraform version12.29
 
 resource "azurerm_resource_group" "be-rg" {
   name     = "${var.env}-Be-rg"
   location = var.location-name
 }
+
+module "be-vnet" {
+  source              = "Azure/vnet/azurerm"
+  vnet_name           = "${var.env}-Web-vnet"
+  resource_group_name = azurerm_resource_group.be-rg.name
+  vnet_location       = azurerm_resource_group.be-rg.location
+  address_space       = ["10.0.2.0/23"]
+  subnet_prefixes     = ["10.0.2.0/24"]
+  subnet_names        = ["${var.env}-Web-subnet"]
+  tags                = null
+}
+
+/*resource "azurerm_virtual_network" "be-rg" {
+  name                = var.web-vnet-name
+  address_space       = ["10.0.2.0/23"]
+  location            = azurerm_resource_group.be-rg.location
+  resource_group_name = azurerm_resource_group.be-rg.name
+}
+
+resource "azurerm_subnet" "be-rg" {
+  name                 = var.web-sub-name
+  resource_group_name  = azurerm_resource_group.be-rg.name
+  virtual_network_name = azurerm_virtual_network.be-rg.name
+  address_prefixes     = ["10.0.2.0/24"]
+}*/
 
 module "web-vm" {
   source         = "../../modules/compute"
@@ -15,16 +37,6 @@ module "web-vm" {
   location       = azurerm_resource_group.be-rg.location
   rg             = azurerm_resource_group.be-rg.name
   admin_password = var.admin_password
-}
-
-module "be-vnet" {
-  source              = "Azure/vnet/azurerm"
-  vnet_name           = "${var.env}-Web-vnet"
-  resource_group_name = azurerm_resource_group.be-rg.name
-  address_space       = ["10.0.2.0/23"]
-  subnet_prefixes     = ["10.0.2.0/24"]
-  subnet_names        = ["${var.env}-Web-subnet"]
-  tags                = {}
 }
 
 resource "azurerm_network_security_rule" "be-rg" {

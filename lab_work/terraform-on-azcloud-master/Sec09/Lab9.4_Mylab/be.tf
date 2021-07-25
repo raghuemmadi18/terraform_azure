@@ -1,7 +1,13 @@
+/*resource "azurerm_resource_group" "be-rg" {
+  name     = "${var.env}-Be-rg"
+  location = var.location-name
+}*/
+
 resource "azurerm_resource_group" "be-rg" {
   name     = "${var.env}-Be-rg"
   location = var.location-name
 }
+
 module "web-vm" {
   source         = "../../modules/compute"
   vm-name        = "${var.env}-Web"
